@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>STY App Prem — Katalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand__logo" src="logo.png" alt="STY App Prem" onerror="this.style.display='none'"/>
+      <div class="brand__text">
+        <div class="brand__name">STY App Prem</div>
+        <div class="brand__sub">Akun premium • Fast resp • Order via WhatsApp</div>
+      </div>
+    </div>
+    <button id="btnQuickWA" class="btn btn--ghost" type="button">Tanya Admin</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Pricelist</h1>
+      <p>Pilih app → pilih paket → lanjut ke WhatsApp.</p>
+
+      <div class="hero__controls">
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="Cari app (contoh: Netflix, Spotify, Canva)..." />
+        </div>
+        <div class="pill">
+          <input id="toggleShowPrice" type="checkbox" checked />
+          <label for="toggleShowPrice">Tampilkan harga</label>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> STY App Prem</div>
+      <div class="footer__muted">Terima kasih sudah berkunjung & belanja di STY App Prem 💙</div>
+    </footer>
+  </main>
+
+  <!-- Modal: Stepper -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="1"></div>
+
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Order">
+      <div class="modal__header">
+        <div class="modal__title">
+          <div id="modalTitle" class="modal__h">Pilih Paket</div>
+          <div id="modalSubtitle" class="modal__sub">—</div>
+        </div>
+        <button class="iconbtn" type="button" data-close="1" aria-label="Tutup">✕</button>
+      </div>
+
+      <div class="steps">
+        <div class="steps__bar">
+          <div id="stepDot1" class="steps__dot steps__dot--on">1</div>
+          <div class="steps__line"></div>
+          <div id="stepDot2" class="steps__dot">2</div>
+        </div>
+        <div class="steps__labels">
+          <div>Paket</div>
+          <div>Ke WhatsApp</div>
+        </div>
+      </div>
+
+      <div id="step1" class="step step--active">
+        <div id="pkgList" class="pkgList"></div>
+
+        <div class="modal__actions">
+          <button class="btn btn--ghost" type="button" data-close="1">Batal</button>
+          <button id="btnToStep2" class="btn" type="button" disabled>Lanjut</button>
+        </div>
+      </div>
+
+      <div id="step2" class="step">
+        <div class="form">
+          <div class="field">
+            <label>Email (opsional)</label>
+            <input id="inputEmail" type="email" placeholder="contoh@gmail.com" />
+          </div>
+
+          <div class="field">
+            <label>Bayar via (opsional)</label>
+            <select id="selectPay"><option value="QRIS (All Payment)" selected>QRIS (All Payment)</option></select>
+          </div>
+
+          <div class="field">
+            <label>Catatan (opsional)</label>
+            <textarea id="inputNote" rows="3" placeholder="Contoh: request name + pin, atau pertanyaan..."></textarea>
+          </div>
+
+          <div class="summary">
+            <div class="summary__row"><span>App</span><strong id="sumApp">-</strong></div>
+            <div class="summary__row"><span>Paket</span><strong id="sumPkg">-</strong></div>
+            <div class="summary__row"><span>Harga</span><strong id="sumPrice">-</strong></div>
+          </div>
+        </div>
+
+        <div class="modal__actions">
+          <button id="btnBack" class="btn btn--ghost" type="button">Kembali</button>
+          <button id="btnWA" class="btn btn--wa" type="button">Lanjut ke WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script id="data-json" type="application/json">
+{
+  "brand": "STY App Prem",
+  "wa_number": "6285967135051",
+  "products": [
+    {
+      "id": "capcut",
+      "name": "CapCut",
+      "tag": "Editing",
+      "image": "assets/apps/capcut.png",
+      "packages": [
+        {
+          "label": "1 Bulan",
+          "price": 18000
+        },
+        {
+          "label": "6 Bulan",
+          "price": 80000
+        },
+        {
+          "label": "1 Tahun",
+          "price": 125000
+        }
+      ]
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "tag": "Music",
+      "image": "assets/apps/spotify.png",
+      "packages": [
+        {
+          "label": "1 Bulan",
+          "price": 26000
+        },
+        {
+          "label": "3 Bulan",
+          "price": 40000
+        }
+      ]
+    },
+    {
+      "id": "canva",
+      "name": "Canva Team",
+      "tag": "Design",
+      "image": "assets/apps/canva.png",
+      "packages": [
+        {
+          "label": "1 Bulan",
+          "price": 16000
+        },
+        {
+          "label": "6 Bulan",
+          "price": 30000
+        },
+        {
+          "label": "1 Tahun",
+          "price": 55000
+        }
+      ]
+    },
+    {
+      "id": "bstation",
+      "name": "Bstation",
+      "tag": "Anime",
+      "image": "assets/apps/bstation.png",
+      "packages": [
+        {
+          "label": "1 Bulan",
+          "price": 35000
+        }
+      ]
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "tag": "AI",
+      "image": "assets/apps/chatgpt.png",
+      "packages": [
+        {
+          "label": "1 Bulan",
+          "price": 27000
+        },
+        {
+          "label": "1 Bulan (Garansi 14 hari)",
+          "price": 35000,
+          "note": "Garansi 14 hari"
+        }
+      ]
+    },
+    {
+      "id": "alight",
+      "name": "Alight Motion",
+      "tag": "Editing",
+      "image": "assets/apps/alight-motion.png",
+      "packages": [
+        {
+          "label": "6 Bulan (NOGAR)",
+          "price": 15000
+        },
+        {
+          "label": "1 Tahun (NOGAR)",
+          "price": 25000
+        }
+      ]
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "tag": "Streaming",
+      "image": "assets/apps/youtube.png",
+      "packages": [
+        {
+          "label": "1 Bulan (Famplan)",
+          "price": 20000
+        }
+      ]
+    },
+    {
+      "id": "grock",
+      "name": "Grock.ai",
+      "tag": "AI",
+      "image": "assets/apps/grock.png",
+      "packages": [
+        {
+          "label": "7 Hari",
+          "price": 16000
+        }
+      ]
+    },
+    {
+      "id": "vidio",
+      "name": "Vidio",
+      "tag": "Streaming",
+      "image": "assets/apps/vidio.png",
+      "packages": [
+        {
+          "label": "1 Bulan (Mobile Only)",
+          "price": 40000
+        }
+      ]
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "tag": "Streaming",
+      "image": "assets/apps/netflix.png",
+      "packages": [
+        {
+          "label": "1P1U - 1 Bulan",
+          "price": 25000
+        },
+        {
+          "label": "1P1U - 2 Bulan",
+          "price": 35000
+        },
+        {
+          "label": "1P1U - 3 Bulan",
+          "price": 43000
+        },
+        {
+          "label": "1P2U - 1 Bulan",
+          "price": 16000,
+          "note": "Only 1 device"
+        },
+        {
+          "label": "1P2U - 2 Bulan",
+          "price": 24000,
+          "note": "Only 1 device"
+        },
+        {
+          "label": "1P2U - 3 Bulan",
+          "price": 33000,
+          "note": "Only 1 device"
+        },
+        {
+          "label": "1U (Anti Limit) - 1 Bulan",
+          "price": 43000,
+          "note": "Anti Limit"
+        }
+      ]
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "tag": "AI",
+      "image": "assets/apps/gemini.png",
+      "packages": [
+        {
+          "label": "1 Bulan (Famplan)",
+          "price": 40000
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+{
+  "brand": "STY App Prem",
+  "wa_number": "6285967135051",
+  "products": [
+    {
+      "id": "capcut",
+      "name": "CapCut",
+      "tag": "Editing",
+      "image": "assets/apps/capcut.png",
+      "packages": [
+        { "label": "1 Bulan", "price": 18000 },
+        { "label": "6 Bulan", "price": 80000 },
+        { "label": "1 Tahun", "price": 125000 }
+      ]
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "tag": "Music",
+      "image": "assets/apps/spotify.png",
+      "packages": [
+        { "label": "1 Bulan", "price": 26000 },
+        { "label": "3 Bulan", "price": 40000 }
+      ]
+    },
+    {
+      "id": "canva",
+      "name": "Canva Team",
+      "tag": "Design",
+      "image": "assets/apps/canva.png",
+      "packages": [
+        { "label": "1 Bulan", "price": 16000 },
+        { "label": "6 Bulan", "price": 30000 },
+        { "label": "1 Tahun", "price": 55000 }
+      ]
+    },
+    {
+      "id": "bstation",
+      "name": "Bstation",
+      "tag": "Anime",
+      "image": "assets/apps/bstation.png",
+      "packages": [
+        { "label": "1 Bulan", "price": 35000 }
+      ]
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "tag": "AI",
+      "image": "assets/apps/chatgpt.png",
+      "packages": [
+        { "label": "1 Bulan", "price": 27000 },
+        {
+          "label": "1 Bulan (Garansi 14 hari)",
+          "price": 35000,
+          "note": "Garansi 14 hari"
+        }
+      ]
+    },
+    {
+      "id": "alight",
+      "name": "Alight Motion",
+      "tag": "Editing",
+      "image": "assets/apps/alight-motion.png",
+      "packages": [
+        { "label": "6 Bulan (NOGAR)", "price": 15000 },
+        { "label": "1 Tahun (NOGAR)", "price": 25000 }
+      ]
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "tag": "Streaming",
+      "image": "assets/apps/youtube.png",
+      "packages": [
+        { "label": "1 Bulan (Famplan)", "price": 20000 }
+      ]
+    },
+    {
+      "id": "grock",
+      "name": "Grock.ai",
+      "tag": "AI",
+      "image": "assets/apps/grock.png",
+      "packages": [
+        { "label": "7 Hari", "price": 16000 }
+      ]
+    },
+    {
+      "id": "vidio",
+      "name": "Vidio",
+      "tag": "Streaming",
+      "image": "assets/apps/vidio.png",
+      "packages": [
+        { "label": "1 Bulan (Mobile Only)", "price": 40000 }
+      ]
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix",
+      "tag": "Streaming",
+      "image": "assets/apps/netflix.png",
+      "packages": [
+        { "label": "1P1U - 1 Bulan", "price": 25000 },
+        { "label": "1P1U - 2 Bulan", "price": 35000 },
+        { "label": "1P1U - 3 Bulan", "price": 43000 },
+        {
+          "label": "1P2U - 1 Bulan",
+          "price": 16000,
+          "note": "Only 1 device"
+        },
+        {
+          "label": "1P2U - 2 Bulan",
+          "price": 24000,
+          "note": "Only 1 device"
+        },
+        {
+          "label": "1P2U - 3 Bulan",
+          "price": 33000,
+          "note": "Only 1 device"
+        },
+        {
+          "label": "1U (Anti Limit) - 1 Bulan",
+          "price": 43000,
+          "note": "Anti Limit"
+        }
+      ]
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "tag": "AI",
+      "image": "assets/apps/gemini.png",
+      "packages": [
+        { "label": "1 Bulan (Famplan)", "price": 40000 }
+      ]
+    }
+  ]
+}
